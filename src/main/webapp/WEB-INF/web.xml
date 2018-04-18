@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ <display-name>miniproj1</display-name>
+ <session-config>
+  <session-timeout>10000</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>index.html</welcome-file>
+  <welcome-file>index.htm</welcome-file>
+  <welcome-file>index.jsp</welcome-file>
+  <welcome-file>default.html</welcome-file>
+  <welcome-file>default.htm</welcome-file>
+  <welcome-file>default.jsp</welcome-file>
+ </welcome-file-list>
+ <security-constraint>
+  <web-resource-collection>
+   <web-resource-name>HtmlAuth</web-resource-name>
+   <description>application security constraint</description>
+   <url-pattern>/xxx/*</url-pattern>
+   <http-method>GET</http-method>
+   <http-method>POST</http-method>
+   <http-method>PUT</http-method>
+   <http-method>DELETE</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>user</role-name>
+  </auth-constraint>
+ </security-constraint>
+ <security-constraint>
+  <web-resource-collection>
+   <web-resource-name>allowed</web-resource-name>
+   <url-pattern>/styles/*</url-pattern>
+   <url-pattern>/img/*</url-pattern>
+   <url-pattern>/scripts/*</url-pattern>
+   <url-pattern>/api/*</url-pattern>
+   <url-pattern>/css/*</url-pattern>
+  </web-resource-collection>
+ </security-constraint>
+ <!--  <login-config> 
+   <auth-method>FORM</auth-method> 
+   <realm-name>Application</realm-name> 
+   <form-login-config> 
+    <form-login-page>/login.xhtml</form-login-page> 
+    <form-error-page>/error.xhtml</form-error-page> 
+   </form-login-config> 
+  </login-config> -->
+ <login-config>
+  <auth-method>FORM</auth-method>
+  <realm-name>expernet</realm-name>
+  <form-login-config>
+   <form-login-page>/login.xhtml</form-login-page>
+   <form-error-page>/error.xhtml</form-error-page>
+  </form-login-config>
+ </login-config>
+</web-app>
